@@ -106,4 +106,73 @@ echo intval(4.2).$br;
 
 // 文字列も整数に変換
 echo intval("42").$br;
+
+/*--------------- floatval()関数 --------------------*/
+echo floatval(42).$br;
+echo floatval(4.2).$br;
+echo floatval('42').$br;
+
+/*------------------ strval()関数 -------------------*/
+// 変数の文字列値を取得
+echo strval(42).$br;
+echo strval(4.2).$br;
+echo strval(4.2E5).$br;
+
+/*-------------  文字列  ----------------------*/
+$str = 'This is a \'simple\' string';
+echo $str .$br;
+
+$str = "\120\110\120";
+echo "PHP with Octal:".$str.$br;
+
+$price = 200;
+echo "price = \$ $price".$br;
+
+/*------------ 文字列連結演算子 ----------------*/
+$str = "Hello world";
+$str2 = "1234";
+
+echo $str." ".$str2.$br;
+
+/*------------------ strlen()関数 ---------*/
+// 文字列の長さを取得する（空白もカウント）
+echo strlen("Hello world").$br;
+
+/*----------- strpos()関数 -------------*/
+// 一致した文字列の検索、最初に一致した一を返す（空白カウント）
+echo strpos("Hello World","World").$br;
+
+/*----------------- bool値 -----------------*/
+$gender = "Male";
+var_dump($gender == "Male");
+echo $br;
+
+// 0以外の数値はtrueとみなされ、+0,-0,0飲みがfalseになる
+$a= 10;
+echo "$a: ";
+// true
+var_dump((bool)$a);
+echo $br;
+
+$a = 0;
+echo "$a: ";
+// false
+var_dump((bool)$a);
+echo $br;
+
+$a = "hello";
+echo "$a: ";
+// true
+var_dump((bool)$a);
+echo $br;
+
+$a = "";
+echo "$a: ";
+// false
+var_dump((bool)$a);
+echo $br;
+
+/*------------------ 整数 ----------------*/
+$a = 1234;
+echo "1234 is an Integer in decimal notation:$a\n".$br;
 ?>
