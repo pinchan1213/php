@@ -10,7 +10,9 @@
   <!-------------------------------    ファイルの読み込み       --------------->
   <?php
 // 改行
-$br = "<br>";
+  $br = "<br>";
+  ob_end_flush();
+
   $fileName = "test.txt";
 
   // 関数を使用して読み取り専用で読み込む
@@ -47,7 +49,7 @@ $br = "<br>";
     echo "読み込みエラー";
   }
 
-  fwrite($file,"ファイルの書き込みを行います\n",100);
+  fwrite($file,"ファイルの書き込を行います\n");
   fclose($file);
 
   // 書き込み処理
@@ -58,7 +60,7 @@ $br = "<br>";
     echo "読み込みエラー";
   }
 
-  $filesize = filesize($fileName);
+  $fileSize = filesize($fileName);
   $fileText = fread($file,$fileSize);
   fclose($file);
 
