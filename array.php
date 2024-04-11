@@ -18,4 +18,9 @@ foreach($arr as $val){
   // 改行
   // echo "$val\n";
 }
+
+$arr = [10,20,30,40,50];
+foreach($arr as $key =>$val){
+  echo "arr[$key] = $val.$br";
+}
 ?>
