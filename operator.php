@@ -131,4 +131,15 @@
 
   // isset()
   $username = isset($_GET['name']) ?? $_GET['name'] ?? 'Guest';
+
+  /*-------------------------------------------------
+  if elseステートメント
+  ------------------------------------------------*/
+  $day = date('D');
+
+  if($day === "Fri"){
+    echo "Friday";
+  }else{
+    echo "Have a nice day!";
+  }
 ?>
