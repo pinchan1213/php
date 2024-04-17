@@ -103,7 +103,7 @@
     echo "$x,$y,$z".$br;
   }
 
-  myfunction(...[10,20],z:30);
+  myfunction([10, 20], 30);
 
   function get_squares(){
     for($i= 0;$i<5; $i++){
@@ -111,7 +111,7 @@
     }
     return $arr;
   }
-  $squares =[...get_squares()];
+  $squares =get_squares();
   print_r($squares);
   echo $br;
 
@@ -121,4 +121,14 @@
   $x = 1;
   $var = isset($x) ? :"not set";
   echo $var.$br;
+
+  // $num = 19;
+  $val = $num ?? 0;
+  echo$val.$br;
+
+  $username = $_GET['name'] ?? 'Guest';
+  echo $username .$br;
+
+  // isset()
+  $username = isset($_GET['name']) ?? $_GET['name'] ?? 'Guest';
 ?>
