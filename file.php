@@ -9,6 +9,23 @@
 
   <!-------------------------------    ファイルの読み込み       --------------->
   <?php
+
+  /*-----------------------------------------------------------
+ファイルのダウンロード
+------------------------------------------------*/
+// 出力バッファを開始
+ob_start(); 
+$filePath = 'hello.png';
+
+// ファイルのダウンロード
+header('Content-Type:application/octect-stream');
+
+// 名前を付けて保存ダイアログボックスがポップアップ表示される
+header('Content-Disposition: attachment; filename="'. basename($filePath).'"');
+
+readfile($filePath);
+
+ob_end_flush();
 // 改行
   $br = "<br>";
   ob_end_flush();
@@ -71,3 +88,5 @@
   ?>
 </body>
 </html>
+<?php
+?>
