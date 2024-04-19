@@ -51,3 +51,4 @@ $dir = "C:/xampp/htdocs/PHP";
 $files = scandir($dir);
 var_dump($files);
 ?>
+

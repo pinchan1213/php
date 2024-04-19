@@ -85,4 +85,126 @@ $y =10;
 
 echo "テスト：".$x;
 echo hoge($x,$y);
+
+/*-----------------------------------------------------------
+アクセス修飾子
+-------------------------------------------------------*/
+
+// public -クラスのスコープ外からでもどこでもアクセスできる
+// private -クラス自体のみアクセスできる
+// protected -クラスとその子クラスのみアクセスでき、他の場所にはアクセスできない
+
+// public
+class Book{
+  var $price;
+  var $title;
+
+  function __construct(string $param1 = "PHP",int $param2 = 300){
+    $this->title = $param1;
+    $this->price = $param2;
+  }
+
+  function getPrice(){
+    global $br;
+    echo "$this->price".$br;
+  }
+
+  function getTitle($br){
+    echo "$this->title".$br;
+  }
+
+}
+$b1 = new Book();
+echo "$b1->title \n.$b1->price";
+
+// private
+class Fook{
+  private $price;
+  private $title;
+
+  function __construct(string $param1 = "php",int $param2 = 200)
+  {
+    $this->title = $param1;
+    $this->price = $param2;
+  }
+
+  public function getPrice(){
+    echo "$this->price";
+  }
+
+  // メソッド名を修正
+  public function getTitle(){
+    echo $this->title;
+  }
+}
+
+$b1 = new Fook();
+// オブジェクトを介してメソッドを正しく呼び出す
+$b1->getTitle();
+echo "<br>"; // 改行を追加
+$b1->getPrice();
+
+/*---------------------------------------------------------------
+継承
+----------------------------------------------------------------*/
+class myclass{
+
+  public function hello(){
+    echo "こんにちは".PHP_EOL;
+  }
+  public function thanks(){
+    echo "ありがとう".PHP_EOL;
+  }
+}
+
+// myclassを継承してnewclassクラスを定義
+  class newclass extends myclass{
+    public function thanks(){
+      echo "こまち".PHP_EOL;
+    }
+  }
+
+  $obj1 = new myclass();
+  $obj1 ->hello();
+  $obj1->thanks();
+
+  $obj2 = new newclass;
+  $obj2->hello();
+  $obj2->thanks();
+
+  class Koma{
+    protected  $price;
+    protected  $title;
+
+    public function getbook(string $param1, int $param2){
+      $this->title = $param1;
+      $this->price = $param2;
+    }
+
+    public function dispbook(){
+      echo "$this ->title,$this->price\n";
+    }
+  }
+
+  class ebook extends Koma{
+    private $format;
+    public function getebook(string $param1, int $param2, string $param3){
+      $this->title = $param1;
+      $this->price = $param2;
+      $this->format = $param3;
+    }
+
+    public function dispbook(){
+      echo $this->title;
+      echo $this->format;
+    }
+  }
+
+  $aa = new ebook;
+  $aa -> getebook("こま",300,"mao");
+  $aa ->dispbook();
+  $bb = new Koma;
+
+  
+
 ?>
