@@ -22,7 +22,7 @@ $sql = "CREATE Database test_db";
 $retval = mysqli_query($db,$sql);
 
 if(! $retval ) {
-  die('Could not create database: ' . mysql_error());
+  die('Could not create database: ' . mysqli_error());
 }
 
 echo "Database test_db created successfully\n";
@@ -37,7 +37,7 @@ $sql =
 'primary key(koma_id)';
 
 // データベースの選択
-mysqli_select_db('test_db');
+mysqli_select_db($db,'test_db');
 
 // 開いているデータベースの接続を終了する
 mysqli_close($db);
